@@ -29,12 +29,12 @@ const SignUpFormBase = props => {
   const { firebase, history } = props;
   const regist = async () => {
     await firebase.doCreateUserWithEmailAndPassword(email, passwordOne);
-    setVal({ ...form });
-    history.push(ROUTES.HOME);
   };
   const onSubmit = e => {
     try {
       regist();
+      setVal({ ...form });
+      history.push(ROUTES.HOME);
     } catch (err) {
       setVal({ ...form, error: err });
     }
